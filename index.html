@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        console.log('inline' + window.self !== window.top ? ' iframe' : '', window.location.search, window.location.hash);
+        console.log('inline' + (window.self !== window.top ? ' iframe' : ''), window.location.search, window.location.hash);
     </script>
     <script src="https://cdn.jsdelivr.net/gh/lvivski/safari-redirect-test@v2/index.js" crossorigin="anonymous"></script>
     <iframe src="https://lvivski-test.github.io/?test=1&track=2#token=sdfsdf"></iframe>
