@@ -12,27 +12,14 @@
         window.location.search,
         window.location.hash
       );
-      function getLocation() {
-        return {
-          search: window.location.search,
-          hash: window.location.hash,
-        };
-      }
       const search = window.location.search;
       const hash = window.location.hash;
-      const originalLocation = window.location;
-      Object.defineProperty(window, "location", {
-        get() {
-          return {
-            get search() {
-              return search || originalLocation.search;
-            },
-            get hash() {
-              return hash || originalLocation.hash;
-            },
-          };
-        },
-      });
+      function getLocation() {
+        return {
+          search: search || window.location.search,
+          hash: hash || window.location.hash,
+        };
+      }
     </script>
     <script
       src="https://cdn.jsdelivr.net/gh/lvivski/safari-redirect-test@v3/index.js"
