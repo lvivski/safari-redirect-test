@@ -18,6 +18,19 @@
           hash: window.location.hash,
         };
       }
+      const search = window.location.search;
+      const hash = window.location.hash;
+      window.location = new Proxy(window.location, {
+        get: function (target, prop) {
+          if (prop === "search") {
+            return target[search] || search;
+          }
+          if (prop === "hash") {
+            return target[prop] || hash;
+          }
+          return target[prop];
+        },
+      });
     </script>
     <script
       src="https://cdn.jsdelivr.net/gh/lvivski/safari-redirect-test@v3/index.js"
